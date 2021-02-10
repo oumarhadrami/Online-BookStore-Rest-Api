@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.mohamed.hadramy.firstonlinebookstorespringboot.model.Book;
 
-@CrossOrigin(origins = "http://localhost:4200")
+
 public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	@RestResource(path = "category_id")
 	Page<Book> findByCategoryId(@Param("id") Long id, Pageable pageable);
+	
+	@RestResource(path = "search_by_keyword")
+	Page<Book> findByNameContainingIgnoreCase(@Param("keyword") String keyword, Pageable pageable);
 }
