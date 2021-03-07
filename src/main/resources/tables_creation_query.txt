@@ -1,0 +1,4 @@
+CREATE TABLE book_category(category_name text, id integer NOT NULL, CONSTRAINT book_category_pkey PRIMARY KEY (id));
+
+
+CREATE TABLE public.book(description text,name text,sku text,unit_price numeric,image_url text,active bit(1),units_in_stock integer,date_created date,date_updated date,id integer NOT NULL,category_id integer NOT NULL,CONSTRAINT id PRIMARY KEY (id),CONSTRAINT book_category_category_id_fkey FOREIGN KEY (category_id)REFERENCES book_category (id) MATCH SIMPLE);
