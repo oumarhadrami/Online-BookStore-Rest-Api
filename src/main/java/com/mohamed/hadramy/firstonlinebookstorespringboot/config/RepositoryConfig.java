@@ -25,7 +25,7 @@ public class RepositoryConfig implements RepositoryRestConfigurer {
 				.map(Type::getJavaType)
 				.toArray(Class[]::new));
 		corsRegistry.addMapping("/**")
-			  .allowedOrigins("http://localhost:4200");
+			  .allowedOrigins("*").allowedMethods("*");
 		
 		
 		
